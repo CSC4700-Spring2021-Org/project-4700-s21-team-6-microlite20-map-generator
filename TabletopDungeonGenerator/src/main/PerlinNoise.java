@@ -29,17 +29,19 @@ public class PerlinNoise {
 	public static void main(String args[]) {
 		//this is the test method, it prints out the random dungeon with a seed of 1234 at the default size
 		Dungeon dun = new Dungeon(1234, 20, 20);
-//		dun.setLayout(randomize(dun.d, dun.SEED));
+		dun.setLayout(randomize(dun.d, dun.SEED));
 //		System.out.println(Arrays.toString(dun.d));
-		boolean[][] arr = randomize(dun.d, dun.SEED);
-		for(boolean[] x : arr) {
-			System.out.print("\n[");
-			for(boolean y : x) {
-				System.out.print((y ? 1 : 0) + ", ");
-			}
-			System.out.print("]");
-		}
+//		boolean[][] arr = randomize(dun.d, dun.SEED);
+//		for(boolean[] x : arr) {
+//			System.out.print("\n[");
+//			for(boolean y : x) {
+//				System.out.print((y ? 1 : 0) + ", ");
+//			}
+//			System.out.print("]");
+//		}
 //		System.out.println(Arrays.deepToString(randomize(dun.d, dun.SEED)));
+		DungeonViewer dv = new DungeonViewer(dun,10);
+		dv.setVisible(true);
 	}
 	
 }
