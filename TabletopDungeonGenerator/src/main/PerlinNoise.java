@@ -14,7 +14,7 @@ public class PerlinNoise {
 		boolean[][] d = new boolean[in.length][in[0].length];
 		
 		//randomize the dungeon here
-		PerlinNoiseGenerator pn = new PerlinNoiseGenerator(seed);
+//		PerlinNoiseGenerator pn = new PerlinNoiseGenerator(seed);
 		SimplexNoise_octave sn = new SimplexNoise_octave(seed);
 		
 		for(int x = 0; x < d.length; x++) {
@@ -40,7 +40,7 @@ public class PerlinNoise {
 //			System.out.print("]");
 //		}
 //		System.out.println(Arrays.deepToString(randomize(dun.d, dun.SEED)));
-		DungeonViewer dv = new DungeonViewer(dun,10);
+		DungeonViewer dv = new DungeonViewer(dun,20);
 		dv.setVisible(true);
 	}
 	
