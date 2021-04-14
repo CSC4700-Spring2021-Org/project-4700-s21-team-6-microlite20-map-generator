@@ -43,7 +43,7 @@ public class Voronoi {
 			}
 		}
 		
-		//connect rooms
+		//connect rooms with 3-wide hallways
 		if(connect) {
 			boolean vert = rand.nextBoolean();
 			for(int o = 2; o < cells-3; o+=3) {
@@ -54,30 +54,46 @@ public class Voronoi {
 				if(vert && y1 < y2) {
 					for(int i = y1; i <= y2; i++) {
 						d[x1][i]=false;
+						d[x1-1][i]=false;
+						d[x1+1][i]=false;
 					}
 					for(int j = x1; j <= x2; j++) {
 						d[j][y2]=false;
+						d[j][y2-1]=false;
+						d[j][y2+1]=false;
 					}
 				} else if(vert && y1 > y2) {
 					for(int i = y2; i <= y1; i++) {
 						d[x2][i]=false;
+						d[x2-1][i]=false;
+						d[x2+1][i]=false;
 					}
 					for(int j = x2; j <= x1; j++) {
 						d[j][y1]=false;
+						d[j][y1-1]=false;
+						d[j][y1+1]=false;
 					}
 				} else if(!vert && x1 < x2) {
 					for(int i = x1; i <= x2; i++) {
 						d[i][y1]=false;
+						d[i][y1-1]=false;
+						d[i][y1+1]=false;
 					}
 					for(int j = y1; j <= y2; j++) {
 						d[x2][j]=false;
+						d[x2-1][j]=false;
+						d[x2+1][j]=false;
 					}
 				} else if(!vert && x1 > x2) {
 					for(int i = x2; i <= x1; i++) {
 						d[i][y2]=false;
+						d[i][y2-1]=false;
+						d[i][y2+1]=false;
 					}
 					for(int j = y2; j <= y1; j++) {
 						d[x1][j]=false;
+						d[x1-1][j]=false;
+						d[x1+1][j]=false;
 					}
 				}
 				vert = rand.nextBoolean();
@@ -90,7 +106,7 @@ public class Voronoi {
 	public static void main(String args[]) {
 		//this is the test method, it prints out the random dungeon with a seed of 1234 at the default size
 		Dungeon dun = new Dungeon(1234, 500, 500);
-		dun.setLayout(randomize(dun.d, dun.SEED, 250, true)); 
+		dun.setLayout(randomize(dun.d, dun.SEED, 50, true)); 
 		DungeonViewer dv = new DungeonViewer(dun,2);
 		dv.setVisible(true);
 		
